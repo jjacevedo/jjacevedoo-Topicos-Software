@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ProductController extends Controller
@@ -36,6 +37,26 @@ class ProductController extends Controller
         ];
 
         return view('product.index')->with("viewData", $viewData);
+    }
+
+    public function create(): View
+    {
+        $viewData = [];
+        $viewData["title"] = "Create product";
+
+        return view('product.create')->with("viewData", $viewData);
+    }
+
+    public function save(Request $request)
+    {
+        $request->validate([
+            "name" => "required",
+            "price" => "required"
+        ]);
+
+        dd($request->all());
+
+        // here will be the code to call the model and save it to the database
     }
 
     public function show(string $id): View
