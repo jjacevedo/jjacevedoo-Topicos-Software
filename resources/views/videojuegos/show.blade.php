@@ -46,6 +46,12 @@
 
     <br>
 
+    <a href="{{ route('videojuegos.edit', $videojuego->id) }}">
+        Editar videojuego
+    </a>
+
+    <br>
+
     <a href="{{ route('videojuegos.index') }}">
         Volver a la lista
     </a>
