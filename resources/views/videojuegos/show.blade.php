@@ -46,9 +46,17 @@
 
     <br>
 
-    <a href="{{ route('videojuegos.edit', $videojuego->id) }}">
-        Editar videojuego
-    </a>
+    <form
+        method="POST"
+        action="{{ route('videojuegos.destroy', $videojuego->id) }}"
+    >
+        @csrf
+        @method('DELETE')
+
+        <button type="submit">
+            Eliminar videojuego
+        </button>
+    </form>
 
     <br>
 

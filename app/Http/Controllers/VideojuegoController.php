@@ -48,39 +48,9 @@ class VideojuegoController extends Controller
         $videojuego->categoria = $validated['categoria'];
         $videojuego->save();
 
-        return redirect()->route('videojuegos.index');
-    }
-
-    public function edit(string $id): View
-    {
-        $videojuego = Videojuego::findOrFail($id);
-
-        return view('videojuegos.edit', compact('videojuego'));
-    }
-
-    public function update(Request $request, string $id): RedirectResponse
-    {
-        $validated = $request->validate([
-            'nombre' => 'required|string|max:255',
-            'precio' => 'required|numeric|min:0',
-            'descripcion' => 'required|string',
-            'fecha_lanzamiento' => 'required|date',
-            'stock' => 'required|integer|min:0',
-            'plataforma' => 'required|string|max:255',
-            'categoria' => 'required|string|max:255',
-        ]);
-
-        $videojuego = Videojuego::findOrFail($id);
-        $videojuego->nombre = $validated['nombre'];
-        $videojuego->precio = $validated['precio'];
-        $videojuego->descripcion = $validated['descripcion'];
-        $videojuego->fecha_lanzamiento = $validated['fecha_lanzamiento'];
-        $videojuego->stock = $validated['stock'];
-        $videojuego->plataforma = $validated['plataforma'];
-        $videojuego->categoria = $validated['categoria'];
-        $videojuego->save();
-
-        return redirect()->route('videojuegos.show', $videojuego->id);
+        return redirect()
+            ->route('videojuegos.index')
+            ->with('success', 'Elemento creado satisfactoriamente');
     }
 
     public function show(string $id): View

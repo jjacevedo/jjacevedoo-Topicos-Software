@@ -9,7 +9,11 @@
 
     <h1>Lista de videojuegos</h1>
 
-    @if ($videojuegos->isEmpty())
+@if (session('success'))
+    <p>{{ session('success') }}</p>
+@endif
+
+@if ($videojuegos->isEmpty())
         <p>No hay videojuegos registrados.</p>
     @else
         <table border="1">
@@ -17,41 +21,18 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Plataforma</th>
-                    <th>Categoría</th>
-                    <th>Stock</th>
-                    <th>Acciones</th>
                 </tr>
             </thead>
 
             <tbody>
                 @foreach ($videojuegos as $videojuego)
                     <tr>
-                        <td>{{ $videojuego->id }}</td>
-                        <td>{{ $videojuego->nombre }}</td>
-                        <td>{{ $videojuego->precio }}</td>
-                        <td>{{ $videojuego->plataforma }}</td>
-                        <td>{{ $videojuego->categoria }}</td>
-                        <td>{{ $videojuego->stock }}</td>
                         <td>
                             <a href="{{ route('videojuegos.show', $videojuego->id) }}">
-                                Ver detalle
+                                {{ $videojuego->id }}
                             </a>
-
-                            <form
-                                method="POST"
-                                action="{{ route('videojuegos.destroy', $videojuego->id) }}"
-                                style="display: inline;"
-                            >
-                                @csrf
-                                @method('DELETE')
-
-                                <button type="submit">
-                                    Eliminar
-                                </button>
-                            </form>
                         </td>
+                        <td>{{ $videojuego->nombre }}</td>
                     </tr>
                 @endforeach
             </tbody>
