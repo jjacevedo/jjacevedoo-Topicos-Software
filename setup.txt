@@ -1,0 +1,103 @@
+TALLER 01 - VIDEOJUEGOS
+Instrucciones de instalación y ejecución
+
+1. REQUISITOS
+
+- PHP
+- Composer
+- MySQL
+- Laravel
+- Un navegador web
+
+2. INSTALACIÓN
+
+Clonar o descargar el proyecto.
+
+Entrar a la carpeta del proyecto:
+
+cd Taller-01
+
+Instalar las dependencias de PHP:
+
+composer install
+
+3. CONFIGURACIÓN DE LA BASE DE DATOS
+
+Crear una base de datos MySQL llamada:
+
+taller01
+
+Configurar el archivo .env con los datos de conexión correspondientes.
+
+Ejemplo:
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=taller01
+DB_USERNAME=root
+DB_PASSWORD=
+
+En esta configuración local, el usuario root no utiliza contraseña.
+
+4. MIGRACIONES
+
+Ejecutar:
+
+php artisan migrate
+
+Esto crea las tablas necesarias de Laravel y la tabla videojuegos.
+
+5. EJECUTAR EL PROYECTO
+
+Desde la carpeta del proyecto ejecutar:
+
+php artisan serve
+
+El servidor estará disponible normalmente en:
+
+http://127.0.0.1:8000
+
+6. RUTA INICIAL
+
+La ruta inicial del taller es:
+
+http://127.0.0.1:8000/
+
+Desde esta página se puede acceder a:
+
+- Crear videojuego
+- Listar videojuegos
+
+7. FUNCIONALIDADES DEL TALLER
+
+El sistema permite:
+
+- Crear videojuegos.
+- Validar los datos recibidos.
+- Almacenar videojuegos en MySQL.
+- Listar videojuegos mostrando ID y nombre.
+- Consultar el detalle completo de un videojuego.
+- Eliminar un videojuego y regresar al listado.
+
+8. ESTRUCTURA PRINCIPAL
+
+Modelo:
+
+app/Models/Videojuego.php
+
+Controlador:
+
+app/Http/Controllers/VideojuegoController.php
+
+Migración:
+
+database/migrations/2026_08_25_000000_create_videojuegos_table.php
+
+Vistas:
+
+resources/views/videojuegos/
+
+Rutas:
+
+routes/web.php
