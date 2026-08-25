@@ -38,7 +38,7 @@ class VideojuegoController extends Controller
             'categoria' => 'required|string|max:255',
         ]);
 
-        $videojuego = new Videojuego();
+        $videojuego = new Videojuego;
         $videojuego->nombre = $validated['nombre'];
         $videojuego->precio = $validated['precio'];
         $videojuego->descripcion = $validated['descripcion'];
