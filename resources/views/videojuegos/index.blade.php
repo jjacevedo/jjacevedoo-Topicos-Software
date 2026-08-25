@@ -21,6 +21,7 @@
                     <th>Plataforma</th>
                     <th>Categoría</th>
                     <th>Stock</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
 
@@ -33,6 +34,11 @@
                         <td>{{ $videojuego->plataforma }}</td>
                         <td>{{ $videojuego->categoria }}</td>
                         <td>{{ $videojuego->stock }}</td>
+                        <td>
+                            <a href="{{ route('videojuegos.show', $videojuego->id) }}">
+                                Ver detalle
+                            </a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

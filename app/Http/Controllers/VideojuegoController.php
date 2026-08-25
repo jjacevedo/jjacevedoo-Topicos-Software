@@ -50,4 +50,11 @@ class VideojuegoController extends Controller
 
         return redirect()->route('videojuegos.index');
     }
+
+    public function show(string $id): View
+    {
+        $videojuego = Videojuego::findOrFail($id);
+
+        return view('videojuegos.show', compact('videojuego'));
+    }
 }
