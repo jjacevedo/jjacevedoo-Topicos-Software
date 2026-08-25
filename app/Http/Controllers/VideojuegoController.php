@@ -57,4 +57,12 @@ class VideojuegoController extends Controller
 
         return view('videojuegos.show', compact('videojuego'));
     }
+
+    public function destroy(string $id): RedirectResponse
+    {
+        $videojuego = Videojuego::findOrFail($id);
+        $videojuego->delete();
+
+        return redirect()->route('videojuegos.index');
+    }
 }

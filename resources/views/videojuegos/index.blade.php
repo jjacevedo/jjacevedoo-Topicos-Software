@@ -38,6 +38,19 @@
                             <a href="{{ route('videojuegos.show', $videojuego->id) }}">
                                 Ver detalle
                             </a>
+
+                            <form
+                                method="POST"
+                                action="{{ route('videojuegos.destroy', $videojuego->id) }}"
+                                style="display: inline;"
+                            >
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit">
+                                    Eliminar
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

@@ -17,3 +17,6 @@ Route::post('/videojuegos', [VideojuegoController::class, 'store'])
 
 Route::get('/videojuegos/{id}', [VideojuegoController::class, 'show'])
     ->name('videojuegos.show');
+
+Route::delete('/videojuegos/{id}', [VideojuegoController::class, 'destroy'])
+    ->name('videojuegos.destroy');
